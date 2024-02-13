@@ -4,7 +4,11 @@
 
 <div id="products">
   <% @products.each do |product| %>
-    <%= render product %>
+
+    <h2><%= product.name %></h2>
+    <%= image_tag(product.avatar,size: "250x250", class: "product-image") %>
+    <p><b>Descricao:</b> <%= product.description %></p>
+    <p><b>Preco:</b> <%= number_to_currency(product.price, unit: "R$", separator: ",", delimiter: ".") %></p>
     <p>
       <%= link_to "Show this product", product %>
     </p>
