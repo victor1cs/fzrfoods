@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :check_admin, only: [:create, :new, :edit, :update, :destroy, :show, :index]
 
   # GET /categories or /categories.json
   def index
@@ -60,6 +61,10 @@ class CategoriesController < ApplicationController
   end
 
   private
+
+  def check_admin
+    redirect_to categories_path, alert: 'You are not authorized to access this page.' unless current_user.admin?
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_category

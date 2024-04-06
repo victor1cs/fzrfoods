@@ -6,13 +6,15 @@
   <% @products.each do |product| %>
 
     <h2><%= product.name %></h2>
-    <%= image_tag(product.avatar,size: "250x250", class: "product-image") %>
+    <%= image_tag(product.avatar,size: "25x25", class: "product-image") %>
     <p><b>Descricao:</b> <%= product.description %></p>
     <p><b>Preco:</b> <%= number_to_currency(product.price, unit: "R$", separator: ",", delimiter: ".") %></p>
     <p>
-      <%= link_to "Show this product", product %>
+    <button type="button" class="btn btn-primary btn-sm"> <%= link_to "Show this product", product %> </button>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New product", new_product_path %>
+<% if current_user && current_user.admin? %>
+  <%= link_to "New product", new_product_path %>
+<% end %>
