@@ -63,7 +63,7 @@ class CategoriesController < ApplicationController
   private
 
   def check_admin
-    redirect_to categories_path, alert: 'You are not authorized to access this page.' unless current_user.admin?
+    redirect_to(categories_path, alert: "You are not authorized to access this page.") unless current_user.admin?
   end
 
   # Use callbacks to share common setup or constraints between actions.

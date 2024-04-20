@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ProductsController < ApplicationController
-  #before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :check_admin, only: [:create, :new, :edit, :update, :destroy]
   before_action :set_product, only: [:show]
   # GET /products or /products.json
@@ -64,7 +64,7 @@ class ProductsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def check_admin
-    redirect_to products_path, alert: 'You are not authorized to access this page.' unless current_user.admin?
+    redirect_to(products_path, alert: "You are not authorized to access this page.") unless current_user.admin?
   end
 
   def set_product
