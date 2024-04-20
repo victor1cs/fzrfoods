@@ -11,12 +11,13 @@ namespace :dev do
     categories = ["Chicken", "Pork", "Beef", "Other"]
 
     puts "Criando as categorias -> #{categories}"
-
+    puts "Categorias criadas"
     categories.each do |category|
       Category.create!(name: category)
     end
-    puts "Categorias criadas"
 
+    puts "Categorias criadas com sucesso!"
+    puts "Criando os produtos"
     20.times.each do |product|
       name        = Faker::Name.name
       description = Faker::Adjective.positive
@@ -31,8 +32,11 @@ namespace :dev do
       )
       product.save!
     end
+    puts "Produtos Criados com sucesso"
 
+    puts "Criando Usuario admin"
     user = User.create!(email: "teste@tete.com", role: "admin", password: "password")
     user.save
+    puts "Usuario admin criado com sucesso"
   end
 end

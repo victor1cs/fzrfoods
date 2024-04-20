@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Essa apliacacao estou usando para meus estudos.
 
-Things you may want to cover:
+Para executar localmente em seu computador, faca o clone do projeto.
 
-* Ruby version
+Para criar dados genericos para visualizacao na aplicacaoexecute no projeto local as linhas de comando abaixo:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+rake db:drop db:create db:migrate dev:create_objects
